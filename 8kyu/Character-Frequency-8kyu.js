@@ -1,0 +1,24 @@
+// Welcome, Warrior! In this kata, you will get a message and you will need to get the frequency of each and every character!
+
+// Explanation
+// Your function will be called char_freq/charFreq/CharFreq and you will get passed a string, you will then return a dictionary (object in JavaScript) with as keys the characters, and as values how many times that character is in the string. You can assume you will be given valid input.
+
+// Example
+// charFreq("I like cats") // Returns {'a': 1, ' ': 2, 'c': 1, 'e': 1, 'I': 1, 'k': 1, 'l': 1, 'i': 1, 's': 1, 't': 1}
+
+
+//solution
+const charFreq = message => {
+  let newMessage = message.split('')
+  let dict = {}
+  
+  newMessage.forEach((char) => dict[char] === undefined ? dict[char] = 1 : dict[char]++)
+  return dict
+}
+
+//test cases
+Test.describe("Your solution", function() {
+  Test.it("should pass a sample test", function() {
+    Test.assertDeepEquals(charFreq("I like cats"), {'a': 1, ' ': 2, 'c': 1, 'e': 1, 'I': 1, 'k': 1, 'l': 1, 'i': 1, 's': 1, 't': 1});
+  });
+});
